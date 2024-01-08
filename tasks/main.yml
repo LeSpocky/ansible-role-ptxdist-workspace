@@ -1,0 +1,44 @@
+---
+# tasks file for ptxdist_workspace
+
+- name: Ensure packages needed to build ptxdist are installed
+  ansible.builtin.apt:
+    pkg:
+      - bison
+      - build-essential
+      - bzip2
+      - dialog
+      - file
+      - flex
+      - gawk
+      - gettext
+      - libncurses-dev
+      - locales
+      - pkg-config
+      - python3-dev
+      - texinfo
+      - wget
+    state: present
+    install_recommends: false
+
+- name: "Add pengutronix apt repository"
+  ansible.builtin.template:
+    src: templates/etc/apt/sources.list.d/pengutronix.list.j2
+    dest: /etc/apt/sources.list.d/pengutronix.list
+    owner: root
+    group: root
+    mode: '0644'
+  notify:
+    - Update apt package information insecure once
+
+- name: Flush handlers
+  ansible.builtin.meta: flush_handlers
+
+- name: Ensure pengutronix keyring is installed
+  ansible.builtin.apt:
+    pkg:
+      - pengutronix-archive-keyring
+    state: present
+    update_cache: false
+    allow_unauthenticated: true
+    install_recommends: false

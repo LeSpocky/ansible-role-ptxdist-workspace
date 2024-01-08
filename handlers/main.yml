@@ -1,0 +1,6 @@
+---
+# handlers file for ptxdist_workspace
+
+- name: Update apt package information insecure once
+  ansible.builtin.command:
+    cmd: 'apt -o="Acquire::AllowInsecureRepositories=true" update'
