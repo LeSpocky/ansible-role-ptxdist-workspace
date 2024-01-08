@@ -1,2 +1,3 @@
 ---
 # defaults file for ptxdist_workspace
+ptxws_apt_uri: "http://debian.pengutronix.de/debian/"
