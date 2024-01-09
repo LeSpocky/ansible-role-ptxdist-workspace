@@ -21,6 +21,13 @@
     state: present
     install_recommends: false
 
+- name: Install related useful packages
+  ansible.builtin.apt:
+    pkg:
+      - icecc                   # distributed compiler
+    state: present
+    install_recommends: false
+
 - name: "Add pengutronix apt repository"
   ansible.builtin.template:
     src: templates/etc/apt/sources.list.d/pengutronix.list.j2
