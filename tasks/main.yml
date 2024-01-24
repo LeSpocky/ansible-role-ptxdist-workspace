@@ -28,6 +28,13 @@
     state: present
     install_recommends: false
 
+- name: Install packages required for certain BSPs
+  ansible.builtin.apt:
+    pkg:
+      - mtools
+    state: present
+    install_recommends: false
+
 - name: "Add pengutronix apt repository"
   ansible.builtin.template:
     src: templates/etc/apt/sources.list.d/pengutronix.list.j2
