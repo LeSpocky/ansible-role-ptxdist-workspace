@@ -24,6 +24,7 @@
 - name: Install related useful packages
   ansible.builtin.apt:
     pkg:
+      - diffstat                # for `ptxdist lint`
       - icecc                   # distributed compiler
     state: present
     install_recommends: false
