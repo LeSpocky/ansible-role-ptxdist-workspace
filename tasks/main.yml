@@ -33,6 +33,8 @@
   ansible.builtin.apt:
     pkg:
       - mtools
+      - texlive-fonts-recommended   # for 'license-compliance.pdf' target
+      - texlive-xetex               # for 'license-compliance.pdf' target
     state: present
     install_recommends: false
 
