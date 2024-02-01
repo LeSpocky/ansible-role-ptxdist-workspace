@@ -24,8 +24,10 @@
 - name: Install related useful packages
   ansible.builtin.apt:
     pkg:
-      - diffstat                # for `ptxdist lint`
-      - icecc                   # distributed compiler
+      - diffstat                  # for `ptxdist lint`
+      - icecc                     # distributed compiler
+      - python3-sphinx            # for `ptxdist docs-html`
+      - python3-sphinx-rtd-theme  # ^^
     state: present
     install_recommends: false
 
