@@ -35,6 +35,7 @@
   ansible.builtin.apt:
     pkg:
       - mtools
+      - python3-venv                # ptxdist-2024.02 et al.
       - texlive-fonts-recommended   # for 'license-compliance.pdf' target
       - texlive-xetex               # for 'license-compliance.pdf' target
     state: present
