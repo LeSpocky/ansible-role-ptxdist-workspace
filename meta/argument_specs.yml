@@ -1,0 +1,15 @@
+# SPDX-FileCopyrightText: 2026 Alexander Dahl <post@lespocky.de>
+# SPDX-License-Identifier: MIT
+---
+argument_specs:
+  # roles/lespocky.ptxdist_workspace/tasks/main.yml entry point
+  main:
+    short_description: Setup workstation for using ptxdist
+    author:
+      - Alexander Dahl
+    options:
+      ptxws_apt_uri:
+        type: str
+        description:
+          - Base apt uri pointing to pengutronix package server.
+          - Can be overridden e.g. to use a package proxy.
